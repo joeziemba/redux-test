@@ -1,5 +1,5 @@
 const initialState = {
-  value: 'h'
+  value: ''
 }
 
 export function formReducer(state = initialState, action) {

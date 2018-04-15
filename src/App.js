@@ -14,6 +14,7 @@ class App extends Component {
   onSubmit(e) {
     e.preventDefault();
     this.props.changeMessage(this.props.value);
+    this.props.changeForm('');
   }
 
   handleChange(e) {
