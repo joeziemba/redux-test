@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
-import { changeMessage, changeForm } from './actions/message';
+import { changeMessage, changeForm } from './actions/message'; // Imports the Action Creators to map to props
 
 class App extends Component {
   constructor(props) {
@@ -47,14 +47,17 @@ const mapDispatchToProps = (dispatch) => {
   return {
     changeMessage: (newMessage) => dispatch(changeMessage(newMessage)),
     changeForm: (value) => dispatch(changeForm(value))
+    // Key determines the prop name (this.props.[key]), value is an anonymous function that passes the variable for the Action Creator and creates a dispatch for the action.
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => { // The connect function will pass the global state object into this function
   return {
     message: state.messageReducer.message,
     value: state.formReducer.value,
     state: state
+    // Key determines prop name (this.props.[key]) value is the piece of state you want to access from the Store
+    // Namespaces (messageReducer, formReducer) are introduced by the combineReducers function. They are determined by how the individual reducers are named (see rootReducer.js)
   }
 }
 
